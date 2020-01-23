@@ -17,7 +17,6 @@ class _HomeState extends State<Home> {
     Quote(author: 'simple boy', text: 'inauma but inabidi uzoee')
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,38 +40,38 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                radius: 40,
-                backgroundImage: AssetImage('assests/avatar.jpg'),
-              ),
-            ),
-            Divider(height: 60, color: Colors.grey[800]),
-            Text(
-              'NAME',
-              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'john wanjema',
-              style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Current Gangster points',
-              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
+//            Center(
+//              child: CircleAvatar(
+//                radius: 40,
+//                backgroundImage: AssetImage('assests/avatar.jpg'),
+//              ),
+//            ),
+//            Divider(height: 60, color: Colors.grey[800]),
+//            Text(
+//              'NAME',
+//              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
+//            ),
+//            SizedBox(
+//              height: 10.0,
+//            ),
+//            Text(
+//              'john wanjema',
+//              style: TextStyle(
+//                  color: Colors.amberAccent[200],
+//                  letterSpacing: 2.0,
+//                  fontSize: 28.0,
+//                  fontWeight: FontWeight.bold),
+//            ),
+//            SizedBox(
+//              height: 10.0,
+//            ),
+//            Text(
+//              'Current Gangster points',
+//              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
+//            ),
+//            SizedBox(
+//              height: 10.0,
+//            ),
             Text(
               '$ninjalevel ',
               style: TextStyle(
@@ -81,28 +80,28 @@ class _HomeState extends State<Home> {
                   fontSize: 28.0,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  'jonwanjema@gmail.com',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 18.0,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-              ],
-            ),
+//            SizedBox(
+//              height: 30.0,
+//            ),
+//            Row(
+//              children: <Widget>[
+//                Icon(
+//                  Icons.email,
+//                  color: Colors.grey[400],
+//                ),
+//                SizedBox(
+//                  width: 10.0,
+//                ),
+//                Text(
+//                  'jonwanjema@gmail.com',
+//                  style: TextStyle(
+//                    color: Colors.grey[400],
+//                    fontSize: 18.0,
+//                    letterSpacing: 1.0,
+//                  ),
+//                ),
+//              ],
+//            ),
             SizedBox(
               height: 30.0,
             ),
@@ -111,7 +110,14 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: quotes
-                    .map((quote) => Quotecard(quote:quote)).toList()
+                    .map((quote) => Quotecard(
+                        quote: quote,
+                        delete: () {
+                          setState(() {
+                            quotes.remove(quote);
+                          });
+                        }))
+                    .toList()
                     .toList(),
               ),
             ),
@@ -121,5 +127,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
