@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:helloflutter/quote.dart';
 
-void main() => runApp(MaterialApp(
- home:Home()
-));
+void main() => runApp(MaterialApp(home: Home()));
 
 class Home extends StatefulWidget {
   @override
@@ -10,10 +9,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int  ninjalevel = 0;
-  List<String> quotes = [
-    'Yes Bana','vitu kwa groundni diffrent','inauma but inabidi uzoee'
+  int ninjalevel = 0;
+  List<Quote> quotes = [
+    Quote(author: 'wanjema', text: 'Yes Bana'),
+    Quote(author: 'njeri', text: 'vitu kwa groundni diffrent'),
+    Quote(author: 'simple boy', text: 'inauma but inabidi uzoee')
   ];
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Column(
+        children: <Widget>[
+          Text(
+            quote.text,
+            style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
+          ),
+          SizedBox(
+            height: 6.0,
+          ),
+          Text(
+            quote.author,
+            style: TextStyle(
+              fontSize: 14.0,
+              color: Colors.grey[800]
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +50,12 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           setState(() {
             ninjalevel += 1;
           });
         },
-        child: Icon(
-          Icons.add
-        ),
+        child: Icon(Icons.add),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -42,56 +65,55 @@ class _HomeState extends State<Home> {
             Center(
               child: CircleAvatar(
                 radius: 40,
-               backgroundImage:  AssetImage('assests/avatar.jpg'),
+                backgroundImage: AssetImage('assests/avatar.jpg'),
               ),
             ),
-            Divider(
-              height: 60,
-              color:Colors.grey[800]
-            ),
+            Divider(height: 60, color: Colors.grey[800]),
             Text(
-                'NAME',
-                style: TextStyle(
-                  color:Colors.white,
-                  letterSpacing: 2.0
-                ),
+              'NAME',
+              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Text(
               'john wanjema',
               style: TextStyle(
-                  color:Colors.amberAccent[200],
+                  color: Colors.amberAccent[200],
                   letterSpacing: 2.0,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold
-              ),
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Text(
               'Current Gangster points',
-              style: TextStyle(
-                  color:Colors.white,
-                  letterSpacing: 2.0
-              ),
+              style: TextStyle(color: Colors.white, letterSpacing: 2.0),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Text(
               '$ninjalevel ',
               style: TextStyle(
-                  color:Colors.amberAccent[200],
+                  color: Colors.amberAccent[200],
                   letterSpacing: 2.0,
                   fontSize: 28.0,
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 30.0,),
+            SizedBox(
+              height: 30.0,
+            ),
             Row(
               children: <Widget>[
                 Icon(
                   Icons.email,
                   color: Colors.grey[400],
                 ),
-                SizedBox(width : 10.0,),
+                SizedBox(
+                  width: 10.0,
+                ),
                 Text(
                   'jonwanjema@gmail.com',
                   style: TextStyle(
@@ -102,13 +124,17 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            SizedBox(height: 30.0,),
-            Column(
-              children: quotes.map((quote)=> Text(quote,
-                style: TextStyle(
-                    color: Colors.amber
-                ),
-              )).toList(),
+            SizedBox(
+              height: 30.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: quotes
+                    .map((quote) => quoteTemplate(quote)).toList()
+                    .toList(),
+              ),
             ),
           ],
         ),
@@ -116,4 +142,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
