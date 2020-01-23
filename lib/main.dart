@@ -11,7 +11,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int  ninjalevel = 0;
-
+  List<String> quotes = [
+    'Yes Bana','vitu kwa groundni diffrent','inauma but inabidi uzoee'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +101,15 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 30.0,),
+            Column(
+              children: quotes.map((quote)=> Text(quote,
+                style: TextStyle(
+                    color: Colors.amber
+                ),
+              )).toList(),
+            ),
           ],
         ),
       ),
