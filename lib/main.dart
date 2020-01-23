@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helloflutter/quote.dart';
 import 'package:helloflutter/quote_card.dart';
+import 'pages/home.dart';
 
-void main() => runApp(MaterialApp(home: Home()));
+void main() => runApp(MaterialApp(
+    home: Home1())
+);
 
 class Home extends StatefulWidget {
   @override
