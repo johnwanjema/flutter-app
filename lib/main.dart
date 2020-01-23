@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloflutter/quote.dart';
+import 'package:helloflutter/quote_card.dart';
 
 void main() => runApp(MaterialApp(home: Home()));
 
@@ -15,29 +16,7 @@ class _HomeState extends State<Home> {
     Quote(author: 'njeri', text: 'vitu kwa groundni diffrent'),
     Quote(author: 'simple boy', text: 'inauma but inabidi uzoee')
   ];
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Column(
-        children: <Widget>[
-          Text(
-            quote.text,
-            style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
-          Text(
-            quote.author,
-            style: TextStyle(
-              fontSize: 14.0,
-              color: Colors.grey[800]
-            ),
-          )
-        ],
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +111,7 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: quotes
-                    .map((quote) => quoteTemplate(quote)).toList()
+                    .map((quote) => Quotecard(quote:quote)).toList()
                     .toList(),
               ),
             ),
@@ -142,3 +121,5 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
