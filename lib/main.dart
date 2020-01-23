@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: Text('Ninja ID Card'),
+        title: Text('Ganster Points Card'),
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 10.0,),
             Text(
-              'Current Ninja level',
+              'Current Gangster points',
               style: TextStyle(
                   color:Colors.white,
                   letterSpacing: 2.0
