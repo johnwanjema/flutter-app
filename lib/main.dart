@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:helloflutter/screens/wrapper.dart';
 
-void main() => runApp(Text('ninja brew'));
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Wrapper()
+    );
+  }
+}
 
