@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:helloflutter/models/user.dart';
 
 class AuthService {
-  //sign in ani
+  //sign in anomimous
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //create user
 
+  //create user
   User _userFromFirebase(FirebaseUser user){
     return user != null ? User(uid: user.uid):null;
 

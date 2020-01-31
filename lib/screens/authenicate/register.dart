@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:helloflutter/services/auth.dart';
 
-class Signin extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SigninState createState() => _SigninState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SigninState extends State<Signin> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
-  //text field state
   String email = '';
   String password = '';
 
@@ -18,7 +17,7 @@ class _SigninState extends State<Signin> {
         backgroundColor: Colors.grey,
         appBar: AppBar(
           backgroundColor: Colors.grey[800],
-          title: Text('sign in to App'),
+          title: Text('sign up to App'),
           centerTitle: true,
         ),
         body: Container(
@@ -28,14 +27,14 @@ class _SigninState extends State<Signin> {
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
-                onChanged:(val){
-                    setState(()=> email = val);
-                }
+                    onChanged:(val){
+                      setState(()=> email = val);
+                    }
 
-              ),
+                ),
                 SizedBox(height: 20.0),
                 TextFormField(
-                  obscureText: true,
+                    obscureText: true,
                     onChanged:(val){
                       setState(()=> password = val);                    }
 
@@ -48,13 +47,13 @@ class _SigninState extends State<Signin> {
                   }                  ,
                   color: Colors.pink[400],
                   child: Text('sign in', style: TextStyle(
-                    color: Colors.white
+                      color: Colors.white
                   ),),
                 )
               ]
               ,
             ),
           ),
-        ));
+        ));;
   }
 }
