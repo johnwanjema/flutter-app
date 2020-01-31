@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:helloflutter/services/auth.dart';
 
 class Signin extends StatefulWidget {
+
+  final Function  toggleView;
+  Signin({ this.toggleView });
+
   @override
   _SigninState createState() => _SigninState();
 }
@@ -15,11 +19,18 @@ class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.grey[800],
           title: Text('sign in to App'),
-          centerTitle: true,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Register'),
+              onPressed: (){
+                widget.toggleView();
+              },
+            )
+          ],
         ),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),

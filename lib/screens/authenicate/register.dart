@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:helloflutter/services/auth.dart';
 
 class Register extends StatefulWidget {
+
+  final Function  toggleView;
+  Register({ this.toggleView });
+
   @override
   _RegisterState createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
+
   final AuthService _auth = AuthService();
   String email = '';
   String password = '';
@@ -14,11 +19,18 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.grey[800],
-          title: Text('sign up to App'),
-          centerTitle: true,
+          title: Text('Register up to App'),
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Sign In'),
+              onPressed: (){
+                widget.toggleView();
+              },
+            )
+          ],
         ),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -47,7 +59,7 @@ class _RegisterState extends State<Register> {
                   }                  ,
                   color: Colors.pink[400],
                   child: Text('sign in', style: TextStyle(
-                      color: Colors.white
+                      color: Colors.white,
                   ),),
                 )
               ]
